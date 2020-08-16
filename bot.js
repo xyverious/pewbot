@@ -19,7 +19,7 @@ bot.on("ready", () => {
   console.log("online")
   
 });
-client.on('message', async message => {
+bot.on('message', async message => {
    if (message.startsWith(prefix + "ping")) {
     try {
       const m = await message.channel.send("Pinging..."); // Make sure the async is written, top of the client.on("message", ...)
