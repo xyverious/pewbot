@@ -20,7 +20,7 @@ bot.on("ready", () => {
   
 });
 bot.on('message', async message => {
-   if (message.startsWith(prefix + "ping")) {
+   if (message.content === "ping") {
     try {
       const m = await message.channel.send("Pinging..."); // Make sure the async is written, top of the client.on("message", ...)
       const embed = new Discord.MessageEmbed()
