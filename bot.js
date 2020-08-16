@@ -21,12 +21,8 @@ bot.on("ready", () => {
 });
 
 client.on("message", async =>{
- if(message.user.id !== )
- 
-  
-})
-if (message.sartsWith(prefix + 'ping')) {
-  try {
+  if (message.startsWith(prefix + 'ping')) {
+   try {
     const m = await message.channel.send("Pinging..."); // Make sure the async is written, top of the client.on("message", ...)
     const embed = new Discord.MessageEmbed()
       .setColor("RANDOM") // Tired of choosing the embed colors? Just type "RANDOM" on it!
