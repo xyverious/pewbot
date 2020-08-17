@@ -19,6 +19,42 @@ bot.on("ready", () => {
   console.log("online")
   
 });
+
+let memberlog = "737271277089194027";
+
+bot.on("guildMemberAdd", member => {
+        if (member.guild.id !== "737271277089194024") return;
+        const embed = new Discord.MessageEmbed()
+          .setColor("RANDOM")
+          .setImage("https://i.gifer.com/2e9L.gif")
+          .setFooter("Pew Army")
+          .setTimestamp(new date())
+          .setThumbnail(member.user.avatarURL())
+          .setTitle("WELCOME TO 🍑PEW ARMY🍑")
+          .setDescription("**HEWWO WHAT'S GOOD?!**\n" +
+                  "\n" +
+                  `Supp <@!${member.user.id}>, welcome aboard to 🍑PEW ARMY🍑! 💯\n` +
+                  "\n" +
+                  "▬ Check out our Rules of the server here:\n" +
+                  "<#737278282143367208>\n" +
+                  "\n" +
+                  "If there's any questions or any personal role request, feel free to send our MOD a message and you will be assisted shortly. Cheers! loveeyes\n")
+    bot.channel.cache.get(memberlog).send(embed)
+ 
+})
+
+bot.on("guildMemberRemove", member => {
+      if (member.guild.id !== "737271277089194024") return;
+      const embeded = new Discord.MessageEmbed()
+        .setColor("RANDOM")
+        .setFooter("Pew Army")
+        .setTimestamp(new date())
+        .setThumbnail(member.user.avatarURL())
+        .setTitle("${member.user.tag}")
+        .setDescription(`<@!${member.user.id}> Left ;-;`)
+    bot.channel.cache.get(memberlog).send(embeded)
+})
+
 bot.on('message', async message => {
    if (message.content === "ping") {
     try {
