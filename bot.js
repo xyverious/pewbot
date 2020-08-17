@@ -16,7 +16,7 @@ bot.on("ready", () => {
     //bot.user.setActivity(status[rstatus], {type: "PLAYING"});
     bot.user.setActivity(status[rstatus], {type: "STREAMING", url: "https://twitch.tv/itspewwpew/"});
   }; setInterval(randomStatus, 30000)
-  console.log("online")
+  console.log(`Logged in as ${client.user.tag}!`);
   
 });
 
@@ -48,7 +48,7 @@ bot.on("guildMemberRemove", member => {
         .setColor("RANDOM")
         .setFooter("Pew Army")
         .setThumbnail(member.user.avatarURL())
-        .setTitle("${member.user.tag}")
+        .setTitle(`${member.user.tag}`)
         .setDescription(`<@!${member.user.id}> Left ;-;`)
     bot.channels.cache.get(memberlog).send(embed);
 })
