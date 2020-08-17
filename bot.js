@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
-const prefix = "pew";
+const PREFIX = "pew";
 
 let m = require("moment-duration-format"),
    os = require("os"),
