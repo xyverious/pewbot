@@ -27,7 +27,6 @@ bot.on("guildMemberAdd", member => {
           .setColor("RANDOM")
           .setImage("https://i.gifer.com/2e9L.gif")
           .setFooter("Pew Army")
-          .setTimestamp(new date())
           .setThumbnail(member.user.avatarURL())
           .setTitle("WELCOME TO 🍑PEW ARMY🍑")
           .setDescription("**HEWWO WHAT'S GOOD?!**\n" +
@@ -48,7 +47,6 @@ bot.on("guildMemberRemove", member => {
       const embed = new Discord.MessageEmbed()
         .setColor("RANDOM")
         .setFooter("Pew Army")
-        .setTimestamp(new date())
         .setThumbnail(member.user.avatarURL())
         .setTitle("${member.user.tag}")
         .setDescription(`<@!${member.user.id}> Left ;-;`)
