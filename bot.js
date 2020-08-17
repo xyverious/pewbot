@@ -20,10 +20,9 @@ bot.on("ready", () => {
   
 });
 
-let memberlog = "737271277089194027";
-
 bot.on("guildMemberAdd", member => {
         if (member.guild.id !== "737271277089194024") return;
+        let memberlog = "737271277089194027";
         const embed = new Discord.MessageEmbed()
           .setColor("RANDOM")
           .setImage("https://i.gifer.com/2e9L.gif")
@@ -39,20 +38,21 @@ bot.on("guildMemberAdd", member => {
                   "<#737278282143367208>\n" +
                   "\n" +
                   "If there's any questions or any personal role request, feel free to send our MOD a message and you will be assisted shortly. Cheers! loveeyes\n")
-    bot.channel.cache.get(memberlog).send(embed)
+    bot.channels.cache.get(memberlog).send(embed);
  
 })
 
 bot.on("guildMemberRemove", member => {
       if (member.guild.id !== "737271277089194024") return;
-      const embeded = new Discord.MessageEmbed()
+      let memberlog = "737271277089194027";
+      const embed = new Discord.MessageEmbed()
         .setColor("RANDOM")
         .setFooter("Pew Army")
         .setTimestamp(new date())
         .setThumbnail(member.user.avatarURL())
         .setTitle("${member.user.tag}")
         .setDescription(`<@!${member.user.id}> Left ;-;`)
-    bot.channel.cache.get(memberlog).send(embeded)
+    bot.channels.cache.get(memberlog).send(embed);
 })
 
 bot.on('message', async message => {
