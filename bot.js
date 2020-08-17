@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
-const PREFIX = "pew";
+const PREFIX = ".pew ";
 
 let m = require("moment-duration-format"),
    os = require("os"),
@@ -90,15 +90,19 @@ function doKissAction() {
  
 bot.on('message', message => {
     let args = message.content.substring(PREFIX.length).split(" ");
- 
+    
     switch (args[0]) {
                    case 'kiss':
                 const personTagged = message.mentions.members.first();
+                const embed = new Discord.MessageEmbed()
+                .setDescription(`${message.author.username} Kissed` + personTagged.displayName + `soo sweet UwU` + doKissAction())
+                .setColor("RANDOM")
+                .setFooter(":o ;-; TwT")
  
                 if(!args[1]) {
-                    message.channel.send('You are missing arguments!')
+                    message.channel.send('Please Mention Someone to Kiss UwU')
                 }else{
-                    message.channel.send('`' + message.author.username + '`' + ' has kissed ' + personTagged.displayName + ' ' + doKissAction())
+                    message.channel.send(embed)
                 }
  
             break;
