@@ -16,7 +16,7 @@ bot.on("ready", () => {
     //bot.user.setActivity(status[rstatus], {type: "PLAYING"});
     bot.user.setActivity(status[rstatus], {type: "STREAMING", url: "https://twitch.tv/itspewwpew/"});
   }; setInterval(randomStatus, 30000)
-  console.log(`Logged in as ${client.user.tag}!`);
+  console.log(`Logged in as ${bot.user.tag}!`);
   
 });
 
