@@ -20,39 +20,51 @@ bot.on("ready", () => {
   
 });
 
+const Discord = require
+("discord.js");
+const bot = new Discord.Client();
+require("dotenv").config();
+require("./server.js");
+
+
+let memberlog = "737271277089194027";
+
+bot.on("ready", () =>  {
+  console.log("bot siap")
+ // bot.user.setActivity("")
+});
+
 bot.on("guildMemberAdd", member => {
         if (member.guild.id !== "737271277089194024") return;
-        let memberlog = "737271277089194027";
         const embed = new Discord.MessageEmbed()
           .setColor("RANDOM")
-          .setTimestamp(new Date())
           .setImage("https://i.gifer.com/2e9L.gif")
-          .setFooter("Pew Army ")
+          .setFooter(`${member.guild.name}`)
+          .setTimestamp(new date())
           .setThumbnail(member.user.avatarURL())
-          .setTitle("WELCOME TO 🍑PEW ARMY🍑")
+          .setTitle(`WELCOME TO ${member.guild.name}`)
           .setDescription("**HEWWO WHAT'S GOOD?!**\n" +
                   "\n" +
-                  `Supp <@!${member.user.id}>, welcome aboard to 🍑PEW ARMY🍑! 💯\n` +
+                  `Supp <@!${member.user.id}>, welcome aboard to ${member.guild.name}! 💯\n` +
                   "\n" +
                   "▬ Check out our Rules of the server here:\n" +
                   "<#737278282143367208>\n" +
                   "\n" +
                   "If there's any questions or any personal role request, feel free to send our MOD a message and you will be assisted shortly. Cheers! loveeyes\n")
-    bot.channels.cache.get(memberlog).send(embed);
+    bot.channel.cache.get(memberlog).send(embed)
  
 })
 
 bot.on("guildMemberRemove", member => {
       if (member.guild.id !== "737271277089194024") return;
-      let memberlog = "737271277089194027";
-      const embed = new Discord.MessageEmbed()
+      const embeded = new Discord.MessageEmbed()
         .setColor("RANDOM")
-        .setTimestamp(new Date())
-        .setFooter("Pew Army ")
+        .setFooter(`${member.user.id}`)
+        .setTimestamp(new date())
         .setThumbnail(member.user.avatarURL())
-        .setTitle(`${member.user.tag}`)
+        .setTitle("${member.user.tag}")
         .setDescription(`<@!${member.user.id}> Left ;-;`)
-    bot.channels.cache.get(memberlog).send(embed);
+    bot.channel.cache.get(memberlog).send(embeded)
 })
 
 bot.on('message', async message => {
