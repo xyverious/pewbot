@@ -20,7 +20,7 @@ bot.on("ready", () => {
   
 });
 
-let memberlog = "737271277089194027";
+
 
 bot.on("ready", () =>  {
   console.log("bot siap")
@@ -28,11 +28,13 @@ bot.on("ready", () =>  {
 });
 
 bot.on("guildMemberAdd", member => {
-        if (member.guild.id !== "737271277089194024") return;
+        //if (member.guild.id !== "737271277089194024") return;
+        let channelID = "737271277089194027";
+        let channel = member.guild.channels.cache.get(channelID);
         const embed = new Discord.MessageEmbed()
           .setColor("RANDOM")
           .setImage("https://i.gifer.com/2e9L.gif")
-          .setFooter(`${member.guild.name}`)
+          .setFooter(`${member.id}`)
           .setTimestamp(new Date())
           .setThumbnail(member.user.avatarURL())
           .setTitle(`WELCOME TO ${member.guild.name}`)
@@ -44,12 +46,14 @@ bot.on("guildMemberAdd", member => {
                   "<#737278282143367208>\n" +
                   "\n" +
                   "If there's any questions or any personal role request, feel free to send our MOD a message and you will be assisted shortly. Cheers! loveeyes\n")
-    bot.channel.cache.get(memberlog).send(embed)
+        channel.send(embed)
  
 })
 
 bot.on("guildMemberRemove", member => {
-      if (member.guild.id !== "737271277089194024") return;
+      //if (member.guild.id !== "737271277089194024") return;
+      let channelId = "737271277089194027";
+      let chan = member.guild.channels.cache.get(channelId);
       const embeded = new Discord.MessageEmbed()
         .setColor("RANDOM")
         .setFooter(`${member.user.id}`)
@@ -57,7 +61,7 @@ bot.on("guildMemberRemove", member => {
         .setThumbnail(member.user.avatarURL())
         .setTitle("${member.user.tag}")
         .setDescription(`<@!${member.user.id}> Left ;-;`)
-    bot.channel.cache.get(memberlog).send(embeded)
+       chan.send(embeded)
 })
 
 bot.on('message', async message => {
