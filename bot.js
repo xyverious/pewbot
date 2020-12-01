@@ -59,7 +59,7 @@ bot.on("guildMemberRemove", member => {
         .setFooter(`${member.user.id}`)
         .setTimestamp(new Date())
         .setThumbnail(member.user.avatarURL())
-        .setTitle("${member.user.tag}")
+        .setTitle(`${member.user.tag}`)
         .setDescription(`<@!${member.user.id}> Left ;-;`)
        chan.send(embeded)
 })
