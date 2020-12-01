@@ -20,13 +20,6 @@ bot.on("ready", () => {
   
 });
 
-const Discord = require
-("discord.js");
-const bot = new Discord.Client();
-require("dotenv").config();
-require("./server.js");
-
-
 let memberlog = "737271277089194027";
 
 bot.on("ready", () =>  {
