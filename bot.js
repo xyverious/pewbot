@@ -11,7 +11,7 @@ let m = require("moment-duration-format"),
 
 bot.on("ready", () => {
   function randomStatus() {
-    let status = [`${Timestamp}`,"pewww uwuu"]
+    let status = ["`${Timestamp}`","pewww uwuu"]
     let rstatus = Math.floor(Math.random() * status.length);
     //bot.user.setActivity(status[rstatus], {type: "PLAYING"});
     bot.user.setActivity(status[rstatus], {type: "STREAMING", url: "https://twitch.tv/itspewwpew/"});
