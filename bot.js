@@ -115,4 +115,4 @@ bot.on('message', message => {
    }
 })
 
-bot.login("NzM3MjgwNjQ0NTM4Njk1NzEy.Xx7EGw.6jfm5dKl5UtLX78SUs6NC7N-fWc")
+bot.login("NzM3MjgwNjQ0NTM4Njk1NzEy.Xx7EGw.NEa1qv8U85tyMhVgZW71dFpcwf4")
