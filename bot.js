@@ -10,12 +10,12 @@ let m = require("moment-duration-format"),
    fetch = require("node-fetch")
 
 bot.on("ready", () => {
-  function randomStatus() {
-    let status = ["`${Timestamp}`","pewww uwuu"]
+    let time = new Date();
+    let status = `${time}`
     let rstatus = Math.floor(Math.random() * status.length);
     //bot.user.setActivity(status[rstatus], {type: "PLAYING"});
-    bot.user.setActivity(status[rstatus], {type: "STREAMING", url: "https://twitch.tv/itspewwpew/"});
-  }; setInterval(randomStatus, 30000)
+    bot.user.setActivity(status, {type: "STREAMING", url: "https://twitch.tv/itspewwpew/"});
+
   console.log(`Logged in as ${bot.user.tag}!`);
   
 });
@@ -33,7 +33,7 @@ bot.on("guildMemberAdd", member => {
           .setColor("RANDOM")
           .setImage("https://i.gifer.com/2e9L.gif")
           .setFooter(`${member.guild.name}`)
-          .setTimestamp(new date())
+          .setTimestamp(new Date())
           .setThumbnail(member.user.avatarURL())
           .setTitle(`WELCOME TO ${member.guild.name}`)
           .setDescription("**HEWWO WHAT'S GOOD?!**\n" +
@@ -53,7 +53,7 @@ bot.on("guildMemberRemove", member => {
       const embeded = new Discord.MessageEmbed()
         .setColor("RANDOM")
         .setFooter(`${member.user.id}`)
-        .setTimestamp(new date())
+        .setTimestamp(new Date())
         .setThumbnail(member.user.avatarURL())
         .setTitle("${member.user.tag}")
         .setDescription(`<@!${member.user.id}> Left ;-;`)
