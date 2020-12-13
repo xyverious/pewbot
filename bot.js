@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const bot = new Discord.Client();
+const bot = new Discord.Client({partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 const PREFIX = ".pew ";
 
 let m = require("moment-duration-format"),
@@ -112,57 +112,72 @@ bot.on('message', message => {
    }
 });
 
-bot.on("messageReactionAdd", async (reaction, user) => {
+});
+
+client.on("messageReactionAdd", async (reaction, user) => {
   if(reaction.message.partial) await reaction.message.fetch();
   if(reaction.partial) await reaction.fetch();
   
   if(user.bot) return;
-  //if(!reaction.message.guild) return;
-  //if(reaction.message.guild.id !== "GUILD ID") return; (for private bot)
-  
+  if(!reaction.message.guild) return;
+  //if(reaction.message.guild.id !== "GUILD ID") return;
+ 
   if(reaction.message.id === "787722922718003200") {
-    if(reaction.emoji.name === ":white_square_button:") {
+    if(reaction.emoji.name === "white_square_button") {
     reaction.message.guild.members.cache.get(user.id).roles.add("787725667747364909")
     return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
     }
-  if(reaction.emoji.name === "🟥") {
+  if(reaction.emoji.name === "red_square") {
     reaction.message.guild.members.cache.get(user.id).roles.add("787725640596979712")
     return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
     }
-  if(reaction.emoji.name === "🟧") {
+  if(reaction.emoji.name === "orange_square") {
     reaction.message.guild.members.cache.get(user.id).roles.add("787725493235220500")
     return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
     }
-  if(reaction.emoji.name === "🟨") {
+  if(reaction.emoji.name === "yellow_square") {
     reaction.message.guild.members.cache.get(user.id).roles.add("787725518253719562")
     return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
     }
-  if(reaction.emoji.name === "🟩") {
+  if(reaction.emoji.name === "green_square") {
     reaction.message.guild.members.cache.get(user.id).roles.add("787725542241468476")
     return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
     }
-  if(reaction.emoji.name === "🟦") {
+  if(reaction.emoji.name === "blue_square") {
     reaction.message.guild.members.cache.get(user.id).roles.add("787725592698421248")
     return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
     }
-  if(reaction.emoji.name === "🟪") {
+  if(reaction.emoji.name === "purple_square") {
     reaction.message.guild.members.cache.get(user.id).roles.add("787725616962207784")
     return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
     }
-  if(reaction.emoji.name === "⬜") {
+  if(reaction.emoji.name === "white_large_square") {
     reaction.message.guild.members.cache.get(user.id).roles.add("787725464642519060")
     return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
     }
-  if(reaction.emoji.name === "⬛") {
+  if(reaction.emoji.name === "white_large_square") {
     reaction.message.guild.members.cache.get(user.id).roles.add("787725431360585768")
     return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
     }
-  if(reaction.emoji.name === "🟫") {
+  if(reaction.emoji.name === "brown_square") {
     reaction.message.guild.members.cache.get(user.id).roles.add("787725567834587186")
     return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
     }
   }else{
     return;
+  }
+});
+
+bot.on("message", msg => {
+  if (msg.guild === null) return;
+  if (msg.author.bot) return;
+  if (!msg.member.hasPermission("ADMINISTRATOR")) return;
+  if (!msg.content.toLowerCase().startsWith(PREFIX)) return;
+  if (msg.content.toLowerCase().startsWith(PREFIX + "purge")) {
+    var mc = msg.content.split(" ")[1];
+    msg.delete();
+    msg.channel.bulkDelete(mc);
+    msg.channel.send("Successfully deleted "+ mc +" Message.");
   }
 });
 
