@@ -120,7 +120,7 @@ bot.on("messageReactionAdd", async (reaction, user) => {
   //if(!reaction.message.guild) return;
   //if(reaction.message.guild.id !== "GUILD ID") return; (for private bot)
   
-  if(reaction.message.channel.id === "787712305831477278") {
+  if(reaction.message.id === "787722922718003200") {
     if(reaction.emoji.name === ":white_square_button:") {
     reaction.message.guild.members.cache.get(user.id).roles.add("787725667747364909")
     return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
