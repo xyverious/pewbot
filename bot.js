@@ -121,7 +121,7 @@ bot.on("messageReactionAdd", async (reaction, user) => {
    if(reaction.message.guild.id !== "737271277089194024") return;
 
    if (reaction.message.id === "787722922718003200") {
-      if (reaction.emoji.name === "white_square_button") {
+      if (reaction.emoji.name === "⭕") {
          reaction.message.guild.members.cache.get(user.id).roles.add("787725667747364909")
          return user.send("Roles has been added ! ;-;")
       }
