@@ -20,13 +20,6 @@ bot.on("ready", () => {
   
 });
 
-
-
-bot.on("ready", () =>  {
-  console.log("bot siap")
- // bot.user.setActivity("")
-});
-
 bot.on("guildMemberAdd", member => {
         //if (member.guild.id !== "737271277089194024") return;
         let channelID = "737271277089194027";
@@ -117,6 +110,56 @@ bot.on('message', message => {
             break;
  
    }
-})
+});
+
+client.on("messageReactionAdd", async (reaction, user) => {
+  if(reaction.message.partial) await reaction.message.fetch();
+  if(reaction.partial) await reaction.fetch();
+  
+  if(user.bot) return;
+  //if(!reaction.message.guild) return;
+  //if(reaction.message.guild.id !== "GUILD ID") return; (for private bot)
+  
+  if(reaction.message.channel.id === "787712305831477278") {
+    if(reaction.emoji.name === ":white_square_button:") {
+    reaction.message.guild.members.cache.get(user.id).roles.add("650666058700816395")
+    return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
+    }
+  if(reaction.emoji.name === "🟥") {
+    reaction.message.guild.members.cache.get(user.id).roles.add("650666058700816395")
+    return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
+    }
+  if(reaction.emoji.name === "🟧") {
+    reaction.message.guild.members.cache.get(user.id).roles.add("650666058700816395")
+    return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
+    }
+  if(reaction.emoji.name === "🟨") {
+    reaction.message.guild.members.cache.get(user.id).roles.add("650666058700816395")
+    return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
+    }
+  if(reaction.emoji.name === "🟩") {
+    reaction.message.guild.members.cache.get(user.id).roles.add("650666058700816395")
+    return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
+    }
+  if(reaction.emoji.name === "🟦") {
+    reaction.message.guild.members.cache.get(user.id).roles.add("650666058700816395")
+    return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
+    }
+  if(reaction.emoji.name === "🟪") {
+    reaction.message.guild.members.cache.get(user.id).roles.add("650666058700816395")
+    return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
+    }
+  if(reaction.emoji.name === "⬜") {
+    reaction.message.guild.members.cache.get(user.id).roles.add("650666058700816395")
+    return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
+    }
+  if(reaction.emoji.name === "⬛") {
+    reaction.message.guild.members.cache.get(user.id).roles.add("650666058700816395")
+    return user.send("Roles has been added ! ;-;").catch(() => console.log("Failed to DM"));
+    }
+  }else{
+    return;
+  }
+});
 
 bot.login("NzM3MjgwNjQ0NTM4Njk1NzEy.Xx7EGw.NEa1qv8U85tyMhVgZW71dFpcwf4")
