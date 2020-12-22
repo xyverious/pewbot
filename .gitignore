@@ -1,0 +1,15 @@
+# Modules
+node_modules
+
+# Development
+.vscode
+
+# Config
+config.json
+tokens
+
+# Generated
+soundlist.json
+database.sqlite
+cache
+restart_info.json
