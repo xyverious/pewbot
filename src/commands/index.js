@@ -30,7 +30,7 @@ module.exports = bot => {
     })
 
     // Command handler
-    bot.prefix = ".pew"
+    bot.prefix = ","
     bot.client.on("message", async msg => {
         if (msg.webhookID) return
         if (bot.ignoreList && bot.ignoreList[msg.author.id]) return
